@@ -1,7 +1,6 @@
 package com.bestbuyexam.tests;
 
-import com.bestbuyexam.libs.BestBuyMonitorsCategoryPage;
-import com.bestbuyexam.libs.BestBuyShopByCategory;
+import com.bestbuyexam.libs.*;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -73,14 +72,39 @@ public class CreditCardExceptionsTest {
         // select the first available item in the Monitor category
         BestBuyMonitorsCategoryPage  mcp = new BestBuyMonitorsCategoryPage(driver);
         Thread.sleep(2000);
-        mcp.selectFirstItemInCatgeory();
+        String prodToCart = mcp.selectFirstItemInCatgeory();
+
+        // Validate that the product we searched ends up
+        // in the 'scope' loaded in with the cart page
+        BestBuyProductToCart ptc = new BestBuyProductToCart(driver);
+        Assert.assertEquals(true, ptc.validateProducToCart(prodToCart));
+
+        // validate the product is in stock
+
+        // add item to cart
+        ptc.addItemToCart();
+        ptc.dismissWarranty();
+        System.out.println(ptc.validateCart());
+        Thread.sleep(2000);
+        ptc.submitForCheckout();
+
+        // begin checkout
+        BestBuyCheckout checkout = new BestBuyCheckout(driver);
+        checkout.selectGuestCheckout();
+        checkout.continueCheckout();
+
+        // fill in delivery info
+        BestBuyDeliveryDetails delivery = new BestBuyDeliveryDetails(driver);
+        delivery.setFirstName(prop.getProperty("first_name"));
+        delivery.setLastName(prop.getProperty("last_name"));
 
     }
 
     @AfterClass
     public static void shutDown() {
+
         if (driver != null) {
-            driver.quit();
+            //driver.quit();
         }
 
         try {

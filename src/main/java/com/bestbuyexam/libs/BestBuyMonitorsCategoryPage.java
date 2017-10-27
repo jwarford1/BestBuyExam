@@ -14,11 +14,13 @@ public class BestBuyMonitorsCategoryPage extends PageObject {
 
     // clicks the very first element of the css classe
     // representing items available in the given catgery
-    public void selectFirstItemInCatgeory()
+    public String  selectFirstItemInCatgeory()
     {
+        // System.out.println( this.driver.findElement(By.className("product-title-wrapper")).getAttribute("innerHTML"));
+        String prodName =  this.driver.findElement(By.className("product-title-wrapper")).getAttribute("innerHTML");
+        this.driver.findElement(By.className("product-title-wrapper")).click();
+        return prodName;
 
-                this.driver.findElement(By.className("prod-image")).click();
-                int x = 0;
 
     }
 }
