@@ -1,6 +1,6 @@
 package com.bestbuyexam.tests;
 
-import com.bestbuyexam.libs.PageUtils;
+import com.bestbuyexam.libs.BestBuyShopByCategory;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -35,7 +35,7 @@ public class CreditCardExceptionsTest {
 
         try
         {
-            input = new FileInputStream("/Users/johnwarford/BestBuyExam/src/main/resources/config.properties");
+            input = new FileInputStream("src/main/resources/config.properties");
         }
         catch(FileNotFoundException f)
         {
@@ -56,10 +56,18 @@ public class CreditCardExceptionsTest {
     public void testInvalidCreditCardNumber() {
 
         driver.navigate().to(prop.getProperty("landing_page"));
-        PageUtils.closePopup(driver);
 
         // verify that we are on the main Best Buy landing page
-        Assert.assertEquals("Computers, TVs, Video Games & Appliances - Best Buy Canada", driver.getTitle());
+        Assert.assertEquals(prop.getProperty("landing_page_title"), driver.getTitle());
+
+        // instantiate a search page and search for a monitor
+        // by passing driver to the constructor for a Page (in this case BestBuyShopByCategory)
+        // handle any modals that popup
+        BestBuyShopByCategory landingPage = new BestBuyShopByCategory(driver);
+        landingPage.closeModalPopup();
+        landingPage.clearSearchBox();
+        landingPage.sendSearchKeyWords(prop.getProperty("product_keyword"));
+        landingPage.submitSearchTerm();
 
     }
 
