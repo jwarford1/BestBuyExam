@@ -1,5 +1,6 @@
 package com.bestbuyexam.tests;
 
+import com.bestbuyexam.libs.BestBuyMonitorsCategoryPage;
 import com.bestbuyexam.libs.BestBuyShopByCategory;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -53,7 +54,7 @@ public class CreditCardExceptionsTest {
     }
 
     @Test
-    public void testInvalidCreditCardNumber() {
+    public void testInvalidCreditCardNumber() throws InterruptedException {
 
         driver.navigate().to(prop.getProperty("landing_page"));
 
@@ -68,6 +69,11 @@ public class CreditCardExceptionsTest {
         landingPage.clearSearchBox();
         landingPage.sendSearchKeyWords(prop.getProperty("product_keyword"));
         landingPage.submitSearchTerm();
+
+        // select the first available item in the Monitor category
+        BestBuyMonitorsCategoryPage  mcp = new BestBuyMonitorsCategoryPage(driver);
+        Thread.sleep(2000);
+        mcp.selectFirstItemInCatgeory();
 
     }
 
