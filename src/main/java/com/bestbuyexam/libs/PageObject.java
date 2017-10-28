@@ -57,4 +57,9 @@ public class PageObject {
             System.out.println( "No pop up detected");
         }
     }
+
+    public void refresh()
+    {
+        this.driver.navigate().refresh();
+    }
 }

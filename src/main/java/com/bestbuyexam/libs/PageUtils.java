@@ -17,8 +17,8 @@ public class PageUtils {
         try
         {
             WebDriverWait wait = new WebDriverWait(driver, 10);
-            WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("at-close-icon")));
-            closeButton.click();
+            WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[contains(@src,'/images/common/checkout/icon_alert_sm.png')]")));
+            System.out.println( "found image");
         }
         catch (TimeoutException t)
         {

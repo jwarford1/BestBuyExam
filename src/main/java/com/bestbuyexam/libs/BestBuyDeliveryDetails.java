@@ -1,8 +1,10 @@
 package com.bestbuyexam.libs;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by johnwarford on 2017-10-27.
@@ -55,11 +57,46 @@ public class BestBuyDeliveryDetails extends PageObject {
     }
 
     public void setFirstName(String firstName){
-        firstNameInput.sendKeys(firstName);
+        this.firstNameInput.sendKeys(firstName);
     }
 
     public void setLastName(String lastName){
-        lastNameInput.sendKeys(lastName);
+        this.lastNameInput.sendKeys(lastName);
     }
+
+    public void setAddress(String address){
+        this.addressInput.sendKeys(address);
+    }
+
+    public void setCity(String city){
+        this.cityInput.sendKeys(city);
+    }
+
+    public void setProvince(String province){
+        Select select = new Select(provinceDropdown);
+        select.selectByVisibleText(province);
+    }
+
+    public void setCountry(String country){
+        Select select = new Select(countryDropdown);
+        select.selectByVisibleText(country);
+    }
+
+    public void setPostalCode(String postalCode){
+        this.postalCodeInput.clear();
+        this.postalCodeInput.sendKeys(postalCode);
+        this.driver.findElement(By.className("pcalogoen")).click();
+    }
+    public void setPhone(String areaCode, String nxx, String number){
+        this.phoneAreaCodeInput.sendKeys(areaCode);
+        this.phoneNxxInput.sendKeys(nxx);
+        this.phoneNumberInput.sendKeys(number);
+    }
+
+    public void continueFromAddress()
+    {
+        this.continueButton.click();
+    }
+
 
 }

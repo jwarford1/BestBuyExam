@@ -5,6 +5,7 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -30,7 +31,10 @@ public class CreditCardExceptionsTest {
     public static  void setUp() throws MalformedURLException {
 
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+
+
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+        //driver.manage().window().maximize();
         prop = new Properties();
 
         try
@@ -97,7 +101,43 @@ public class CreditCardExceptionsTest {
         BestBuyDeliveryDetails delivery = new BestBuyDeliveryDetails(driver);
         delivery.setFirstName(prop.getProperty("first_name"));
         delivery.setLastName(prop.getProperty("last_name"));
+        delivery.setAddress(prop.getProperty("address"));
+        delivery.setCity(prop.getProperty("city"));
+        delivery.setProvince(prop.getProperty("province"));
+        delivery.setPostalCode(prop.getProperty("postal_code"));
+        delivery.setCountry(prop.getProperty("country"));
+        delivery.setPhone(prop.getProperty("phone_area_code"), prop.getProperty("phone_prefix"),prop.getProperty("phone_suffix"));Thread.sleep(5000);
 
+
+        JavascriptExecutor jsDown = (JavascriptExecutor) driver;
+        jsDown.executeScript("javascript:window.scrollBy(515,1045)");
+
+        delivery.continueFromAddress();
+
+        // fill in visa card info with invalid cc number
+        // caputure exception
+        BestBuyPayment payment = new BestBuyPayment(driver);
+        Thread.sleep(5000);
+
+
+        payment.selectCreditCard();
+        payment.setCardType("Visa");
+        payment.setCardExpirationMonth("01");
+        payment.setCardExpirationYear("2019");
+        Thread.sleep(5000);
+        payment.setCardNumber("xx");
+        Thread.sleep(5000);
+
+        // Possible bug:  the cvv box appears in the browser, but its syntax has no height
+        // payment.setCardCVV("047");
+
+        payment.selectSameShipping();
+        Thread.sleep(5000);
+        payment.processCard();
+        Thread.sleep(5000);
+        //PageUtils.closePopup(driver);
+        String x = payment.getErrorSummaries();
+        System.out.println(x);
     }
 
     @AfterClass
