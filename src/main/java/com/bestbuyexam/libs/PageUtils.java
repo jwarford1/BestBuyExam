@@ -1,9 +1,6 @@
 package com.bestbuyexam.libs;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,6 +20,18 @@ public class PageUtils {
         catch (TimeoutException t)
         {
             System.out.println( "No pop up detected");
+        }
+    }
+
+    public static void scrollerHelper(int x, int y, WebDriver driver)
+    {
+        String jsCommannd = "javascript:window.scrollBy(" + x + "," +  y + ")";
+        JavascriptExecutor jsDown = (JavascriptExecutor) driver;
+        jsDown.executeScript(jsCommannd);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
