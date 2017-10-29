@@ -63,26 +63,8 @@ public class CreditCardExceptionsTest {
     @BeforeClass
     public static  void setUp() throws MalformedURLException {
 
-        DesiredCapabilities capabilities = null;
-
-        String browser = System.getProperty("browser");
-
-        if(browser.equals("chrome"))
-        {
-            capabilities = DesiredCapabilities.chrome();
-        }
-
-        if(browser.equals("firefox"))
-        {
-            capabilities = DesiredCapabilities.firefox();
-        }
-
-
-
-        System.out.println(browser);
-
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-
+        DesiredCapabilities capabilities = BrowserUtils.getBrowserCapabilities();
+        
         prop = new Properties();
 
         try
@@ -102,6 +84,8 @@ public class CreditCardExceptionsTest {
 
             System.out.println(ex.getCause());
         }
+
+        driver = new RemoteWebDriver(new URL(prop.getProperty("hub_url")), capabilities);
     }
 
     @Test

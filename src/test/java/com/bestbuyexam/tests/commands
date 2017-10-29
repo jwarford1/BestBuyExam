@@ -1,0 +1,19 @@
+Start as selenium as the hub
+java -jar selenium-server-standalone-3.6.0.jar -role hub
+
+Register a node as chrome driver
+java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/register -port 5566
+
+run
+mvn clean test -Dbrowser=“chrome"
+
+
+*** if you want to try firefox
+
+Then stop the chrome node and restart twist the gecko driver
+
+run
+java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
+
+run
+mvn clean test -Dbrowser=“firefox"

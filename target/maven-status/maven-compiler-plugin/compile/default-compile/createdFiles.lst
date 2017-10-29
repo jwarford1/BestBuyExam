@@ -4,5 +4,6 @@ com/bestbuyexam/libs/PageObject.class
 com/bestbuyexam/libs/BestBuyCheckout.class
 com/bestbuyexam/libs/BestBuyPayment.class
 com/bestbuyexam/libs/BestBuyProductToCart.class
+com/bestbuyexam/libs/BrowserUtils.class
 com/bestbuyexam/libs/BestBuyMonitorsCategoryPage.class
 com/bestbuyexam/libs/BestBuyShopByCategory.class
