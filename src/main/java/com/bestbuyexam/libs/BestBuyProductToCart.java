@@ -16,6 +16,9 @@ public class BestBuyProductToCart extends PageObject {
     @FindBy(className = "cart-message")
     private WebElement cartMessage;
 
+    @FindBy(className = "messaging")
+    private WebElement productAvailability;
+
     @FindBy(xpath = "//img[contains(@src,'/images/common/checkout/icon_lock.png')]")
     private WebElement checkout;
 
@@ -48,6 +51,11 @@ public class BestBuyProductToCart extends PageObject {
     public void submitForCheckout()
     {
         checkout.click();
+    }
+
+    public String getSelectedProductAvailability()
+    {
+        return this.productAvailability.getAttribute("innerHTML");
     }
 
 }

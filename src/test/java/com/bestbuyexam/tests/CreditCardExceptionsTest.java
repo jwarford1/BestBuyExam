@@ -55,7 +55,7 @@ public class CreditCardExceptionsTest {
     };
 
     public static RemoteWebDriver driver;
-    //public static String appURL = "https://www.bestbuy.ca";
+
     static Properties prop = null;
     static InputStream input = null;
     private String actual_exception_string = "";
@@ -107,18 +107,16 @@ public class CreditCardExceptionsTest {
 
         // select the first available item in the Monitor category
         BestBuyMonitorsCategoryPage  mcp = new BestBuyMonitorsCategoryPage(driver);
-
         mcp.selectLedMonitorType();
-        //Thread.sleep(2000);
-        String prodToCart = mcp.selectFirstItemInCatgeory();
-
 
         // Validate that the product we searched ends up
-        // in the 'scope' loaded in with the cart page
+        // in 'scope' ie: loaded in with the cart page
+        String prodToCart = mcp.selectFirstItemInCatgeory();
         BestBuyProductToCart ptc = new BestBuyProductToCart(driver);
         Assert.assertEquals(true, ptc.validateProducToCart(prodToCart));
 
         // **** validate the product is in stock
+        Assert.assertTrue((ptc.getSelectedProductAvailability().contains(prop.getProperty("product_availability"))));
 
         // add item to cart
         ptc.addItemToCart();
@@ -158,7 +156,8 @@ public class CreditCardExceptionsTest {
         // payment.setCardCVV("047");
 
         payment.selectSameShipping();
-        // *** validate same as shipping
+
+        // validate that aut-complete correcly populates the same as shipping fields
 
         PageUtils.scrollerHelper(630, 1045, driver);
         payment.processCard();
