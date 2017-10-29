@@ -64,7 +64,7 @@ public class CreditCardExceptionsTest {
     public static  void setUp() throws MalformedURLException {
 
         DesiredCapabilities capabilities = BrowserUtils.getBrowserCapabilities();
-        
+
         prop = new Properties();
 
         try
