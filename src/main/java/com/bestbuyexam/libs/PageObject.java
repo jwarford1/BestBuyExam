@@ -33,7 +33,7 @@ public class PageObject {
     {
         try
         {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebDriverWait wait = new WebDriverWait(driver, 5);
             WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("at-close-icon")));
             closeButton.click();
         }

@@ -55,7 +55,6 @@ public class CreditCardExceptionsTest {
     };
 
     public static RemoteWebDriver driver;
-
     static Properties prop = null;
     static InputStream input = null;
     private String actual_exception_string = "";
@@ -160,6 +159,17 @@ public class CreditCardExceptionsTest {
         // validate that auto-fill correcly populates the same as address shipping fields
         Assert.assertEquals(payment.getSameAsShippingFirstName(), prop.getProperty("first_name"));
         Assert.assertEquals(payment.getSameAsShippingLasttName(), prop.getProperty("last_name"));
+        Assert.assertEquals(payment.getSameAsShippingAddress(), prop.getProperty("address"));
+        Assert.assertEquals(payment.getSameAsShippingCity(), prop.getProperty("city"));
+
+        Assert.assertEquals(payment.getSameAsShippingStateOrProvince(), prop.getProperty("province_code"));
+        Assert.assertEquals(payment.getSameAsShippingPostalCode(), prop.getProperty("postal_code"));
+        Assert.assertEquals(payment.getSameAsShippingCountry(), prop.getProperty("country_code"));
+
+        //Assert.assertEquals(payment.getSameAsShippingAreaCode(), prop.getProperty("phone_area_code"));
+        Assert.assertEquals(payment.getSameAsShippingPhonePrefix(), prop.getProperty("phone_prefix"));
+        Assert.assertEquals(payment.getSameAsShippingPhoneSuffix(), prop.getProperty("phone_suffix"));
+
 
         PageUtils.scrollerHelper(630, 1045, driver);
         payment.processCard();

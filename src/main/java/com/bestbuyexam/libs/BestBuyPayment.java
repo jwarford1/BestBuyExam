@@ -49,6 +49,29 @@ public class BestBuyPayment extends PageObject{
     @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_LastNameContainer_txtLastName")
     private WebElement sameAsLastName;
 
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_AddressLine1Container_TxtAddressLine1")
+    private WebElement sameAsAddress;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_CityContainer_TxtCity")
+    private WebElement sameAsCity;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_StateContainer_DdlState")
+    private WebElement sameAsStateOrProvince;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_PostalCodeContainer_TxtZipCode")
+    private WebElement sameAsPostalCode;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_CountryContainer_DdlCountry")
+    private WebElement sameAsCountry;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_CountryContainer_DdlCountry")
+    private WebElement sameAsAreaCode;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_Phone2Container_TxtPhone2")
+    private WebElement sameAsPhoneSuffix;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_Phone1Container_TxtPhone1")
+    private WebElement sameAsPhonePrefix;
 
     public BestBuyPayment(WebDriver driver) {
         super(driver);
@@ -96,6 +119,46 @@ public class BestBuyPayment extends PageObject{
     public String getSameAsShippingLasttName()
     {
         return this.sameAsLastName.getAttribute("value");
+    }
+
+    public String getSameAsShippingAddress()
+    {
+        return this.sameAsAddress.getAttribute("value");
+    }
+
+    public String getSameAsShippingCity()
+    {
+        return this.sameAsCity.getAttribute("value");
+    }
+
+    public String getSameAsShippingStateOrProvince()
+    {
+        return this.sameAsStateOrProvince.getAttribute("value");
+    }
+
+    public String getSameAsShippingPostalCode()
+    {
+        return this.sameAsPostalCode.getAttribute("value");
+    }
+
+    public String getSameAsShippingCountry()
+    {
+        return this.sameAsCountry.getAttribute("value");
+    }
+
+    public String getSameAsShippingAreaCode()
+    {
+        return this.sameAsAreaCode.getAttribute("value");
+    }
+
+    public String getSameAsShippingPhonePrefix()
+    {
+        return this.sameAsPhonePrefix.getAttribute("value");
+    }
+
+    public String getSameAsShippingPhoneSuffix()
+    {
+        return this.sameAsPhoneSuffix.getAttribute("value");
     }
 
     public void processCard()

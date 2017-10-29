@@ -36,13 +36,13 @@ public class BestBuyDeliveryDetails extends PageObject {
     private WebElement countryDropdown;
 
     @FindBy(id = "ctl00_CP_checkoutSections_ctl01_DeliveryOptionTabs1_manageShippingAddress_oeaUseNew_addressUC_PhoneContainer_TxtPhone")
-    private WebElement phoneAreaCodeInput;
+    private WebElement phoneAreaCode;
 
     @FindBy(id = "ctl00_CP_checkoutSections_ctl01_DeliveryOptionTabs1_manageShippingAddress_oeaUseNew_addressUC_Phone1Container_TxtPhone1")
-    private WebElement phoneNxxInput;
+    private WebElement phonePrefix;
 
     @FindBy(id = "ctl00_CP_checkoutSections_ctl01_DeliveryOptionTabs1_manageShippingAddress_oeaUseNew_addressUC_Phone2Container_TxtPhone2")
-    private WebElement phoneNumberInput;
+    private WebElement phoneSuffix;
 
     @FindBy(id = "ctl00_CP_checkoutSections_ctl01_DeliveryOptionTabs1_btnContinueFromShipping")
     private WebElement continueButton;
@@ -87,10 +87,10 @@ public class BestBuyDeliveryDetails extends PageObject {
         this.postalCodeInput.sendKeys(postalCode);
         this.driver.findElement(By.className("pcalogoen")).click();
     }
-    public void setPhone(String areaCode, String nxx, String number){
-        this.phoneAreaCodeInput.sendKeys(areaCode);
-        this.phoneNxxInput.sendKeys(nxx);
-        this.phoneNumberInput.sendKeys(number);
+    public void setPhone(String areaCode, String prefix, String suffix){
+        this.phoneAreaCode.sendKeys(areaCode);
+        this.phonePrefix.sendKeys(prefix);
+        this.phoneSuffix.sendKeys(suffix);
     }
 
     public void continueFromAddress()
