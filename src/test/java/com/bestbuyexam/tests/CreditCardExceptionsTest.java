@@ -62,8 +62,14 @@ public class CreditCardExceptionsTest {
     @BeforeClass
     public static  void setUp() throws MalformedURLException {
 
-        DesiredCapabilities capabilities = BrowserUtils.getBrowserCapabilities();
-
+        DesiredCapabilities capabilities = null;
+        try {
+            capabilities = BrowserUtils.getBrowserCapabilities();
+        }
+        catch (NullPointerException n)
+        {
+            System.out.println(n.getCause());
+        }
         prop = new Properties();
 
         try
@@ -140,6 +146,7 @@ public class CreditCardExceptionsTest {
         delivery.setPhone(prop.getProperty("phone_area_code"), prop.getProperty("phone_prefix"),prop.getProperty("phone_suffix"));
         PageUtils.scrollerHelper(515, 1045, driver);
         delivery.continueFromAddress();
+        Thread.sleep(2000);
 
         // fill in visa card info with invalid cc number
         // caputure exception

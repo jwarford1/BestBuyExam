@@ -12,7 +12,6 @@ public  class BrowserUtils {
         DesiredCapabilities capabilities = null;
 
         String browser = System.getProperty("browser");
-        browser = "chrome";
 
         if(browser.equals("chrome"))
         {
