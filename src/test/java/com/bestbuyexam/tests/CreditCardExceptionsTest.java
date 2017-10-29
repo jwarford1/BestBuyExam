@@ -63,7 +63,23 @@ public class CreditCardExceptionsTest {
     @BeforeClass
     public static  void setUp() throws MalformedURLException {
 
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        DesiredCapabilities capabilities = null;
+
+        String browser = System.getProperty("browser");
+
+        if(browser.equals("chrome"))
+        {
+            capabilities = DesiredCapabilities.chrome();
+        }
+
+        if(browser.equals("firefox"))
+        {
+            capabilities = DesiredCapabilities.firefox();
+        }
+
+
+
+        System.out.println(browser);
 
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
@@ -157,7 +173,9 @@ public class CreditCardExceptionsTest {
 
         payment.selectSameShipping();
 
-        // validate that aut-complete correcly populates the same as shipping fields
+        // validate that auto-fill correcly populates the same as address shipping fields
+        Assert.assertEquals(payment.getSameAsShippingFirstName(), prop.getProperty("first_name"));
+        Assert.assertEquals(payment.getSameAsShippingLasttName(), prop.getProperty("last_name"));
 
         PageUtils.scrollerHelper(630, 1045, driver);
         payment.processCard();

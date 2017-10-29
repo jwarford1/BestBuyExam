@@ -43,6 +43,13 @@ public class BestBuyPayment extends PageObject{
     @FindBy(xpath = "//*[@id='ctl00_CP_ErrorSummaryUC12_ValidationSummary1']/ul/li[1]")
     private WebElement errorSummary;
 
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_FirstNameContainer_TxtFirstName")
+    private WebElement sameAsFirstName;
+
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_LastNameContainer_txtLastName")
+    private WebElement sameAsLastName;
+
+
     public BestBuyPayment(WebDriver driver) {
         super(driver);
     }
@@ -79,6 +86,16 @@ public class BestBuyPayment extends PageObject{
     public void selectSameShipping()
     {
         this.seletShippingSameAsDetails.click();
+    }
+
+    public String getSameAsShippingFirstName()
+    {
+        return this.sameAsFirstName.getAttribute("value");
+    }
+
+    public String getSameAsShippingLasttName()
+    {
+        return this.sameAsLastName.getAttribute("value");
     }
 
     public void processCard()
