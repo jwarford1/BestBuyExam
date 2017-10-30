@@ -1,21 +1,27 @@
 # BestBuyExam
 ## Description
 
+This demo uses Selenium Grid and The Page Obect Model to sastifies the interview question requirements.
+Selenium Grid uses a central hub and one or more nodes to execute webdirver tests. For this demo I run 
+a single node configured to run with the Chrome driver. A node can be for multiple driver versions. 
+
+The Page Object Model resolve the issue of having multiple test scripts witht the same code accessing the 
+same html element. Now the code to access an element resides in a single class. As well, the logical 
+abstraction of a page class allows for convenient test design flexibility.
+
 ####  System Details
 
  * OS X El Capitan 10.11.5
  * Intellij Community 17.1
  * Java JDK / JRE 1.8.0_121
  * Selenium server Standaloe 3.0.6
- * Chrome / Firefox
+ * Chrome / Firefox (optional)
  * Maven 3.5.0
 
 ## Installation and Running Instructions
-To run using maven
 
-Unzip this repo
-
-cd into ~/BestBuyExam
+* clone or downlaod and unzip this repository
+* cd into the top level directory 
 
 Start as selenium as the hub
 java -jar selenium-server-standalone-3.6.0.jar -role hub
