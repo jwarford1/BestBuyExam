@@ -4,11 +4,11 @@
 This demo uses Selenium Grid and the Page Obect Model to sastify the interview question requirements.
 Selenium Grid uses a central hub and one or more nodes to execute webdirver tests. For this demo I have 
 a single node configured to run with the Chrome driver. A node can be also be confgured for multiple 
-driver versions, and has default versions as wel.
+driver versions, and has default versions as well.
 
-The Page Object Model resolve the issue of having multiple test scripts witht the same code accessing the 
+The Page Object Model resolves the issue of having multiple test scripts witht the same code accessing the 
 same html element. Now the code to access an element resides in a single class. As well, the logical 
-abstraction of a page class allows for convenient test design flexibility.
+abstraction of a page class allows for test design flexibility.
 
 ####  System Details
 
