@@ -1,5 +1,7 @@
 # BestBuyExam
 ## Description
+
+## Installation and Running Instructions
 To run using maven
 
 Unzip this repo
@@ -21,17 +23,18 @@ mvn clean test -Dbrowser=“chrome"
 Then stop the chrome node and restart twist the gecko driver
 
 run 
-java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
+java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
 
-run
+
+
 mvn clean test -Dbrowser=“firefox"
 
 
-Design Decisions Explained:
+## Design Decisions Explained:
 
 The following is a list of the choices I made for this exam with justifications and possible alternatives where appropriate.
 
-Selenium Grid:
+### Selenium Grid:
 
 Flexibility, re-use and deployment potential. 
 
@@ -41,13 +44,11 @@ In the real world we could design a system that set up Selenium grid with multip
 
 For Dev/QA/Prod environments there are pre-existing Docker images configurable as per our requirements.
 
-Depending on cloud services availability, this could all be wrapped up in deployment scripts using Terraform (AWS) or Kubectl config files (Kubernetes on the Google Cloud Platform)
+Depending on cloud services availability, this could all be wrapped up in deployment scripts using Terraform (AWS) or Kubectl config files (Kubernetes on the Google Cloud Platform) along with a CI / CD system such as Jenkins or Travis CI.
 
 https://github.com/SeleniumHQ/docker-selenium
 
-
-
-Page Object Model
+### Page Object Model
 
 Allows for flexibility and easy refactoring
 
@@ -67,11 +68,11 @@ and derive from it several POM objects based on the different ways to navigate a
  3.) Departments
  4.) Brands
 
-Maven: 
+### Maven: 
 
 It is simple and well understood. A suitable alternative would be to use grade builds.
 
-JUnit:
+### JUnit:
 
 Industry standard annotations and assertions. 
 
@@ -79,11 +80,7 @@ A more sophisticated approach would be to use TestNG annotations.
 
 Particularly to remove the need for static methods, and to make use of the reporting mechanisms available in TestNg.
 
-
-
-
-
-Issues:
+## Issues:
 // the cvv box appears in the browser, but its syntax has no height
 I left it blank a it provide an exception
 
