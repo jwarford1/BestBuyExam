@@ -80,23 +80,17 @@ https://github.com/SeleniumHQ/docker-selenium
 
 ### Page Object Model
 
-Allows for flexibility and easy refactoring
-
-The example code is meant to demonstrate this flexibility. 
-It use the search box on the landing page.
-
-It could easily be expanded to incorporate all of
-the categories on the best buy landing page.
-
+Allows for flexibility and easy refactoring because the code to access a given element resides in a single class.
+The example code is meant to demonstrate this flexibility.  It use the search box on the landing page.
+It could easily be expanded to incorporate all of the categories on the best buy landing page.
 Similarly, all of the Sections in the left pane could be there own page.
 
-Essentially we could have a parent “navigation” class
-and derive from it several POM objects based on the different ways to navigate as the user drill down to a specific product.
+Essentially we could have a parent “navigation” class and derive from it several POM objects based on the different ways to navigate; as the user drill down to a specific product.
 
- 1.) by keyword
- 2.) by category
- 3.) Departments
- 4.) Brands
+* Keyword
+* Category
+* Departments
+* Brands
 
 ### Maven: 
 
@@ -104,10 +98,7 @@ It is simple and well understood. A suitable alternative would be to use grade b
 
 ### JUnit:
 
-Industry standard annotations and assertions. 
-
-A more sophisticated approach would be to use TestNG annotations. 
-
+Industry standard annotations and assertions. A more sophisticated approach would be to use TestNG annotations. 
 Particularly to remove the need for static methods, and to make use of the reporting mechanisms available in TestNg.
 
 
