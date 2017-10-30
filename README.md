@@ -50,7 +50,7 @@ Stop the chrome node and restart with the gecko driver and run:
 java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
 
 ## Issues:
-Selenium was unable to populate the credit card cvv input field. It does appear in browser and can be manually edited, but debugging via Chri=ome De Tools, it appears that it has no height dimension.
+Selenium was unable to populate the credit card cvv input field. It does appear in browser and can be manually edited, but debugging via Chrome Dev. Tools, it appears that it has no height dimension.
 Since it provides an appropritae exception for this test; i simply left it blank.
 
 ## Design Decisions Explained:
