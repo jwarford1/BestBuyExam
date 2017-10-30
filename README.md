@@ -85,7 +85,7 @@ The example code is meant to demonstrate this flexibility.  It use the search bo
 It could easily be expanded to incorporate all of the categories on the best buy landing page.
 Similarly, all of the Sections in the left pane could be there own page.
 
-Essentially we could have a parent “navigation” class and derive from it several POM objects based on the different ways to navigate; as the user drill down to a specific product.
+Essentially we could have a parent “navigation” class and derive from it several POM objects based on the different ways to navigate; as the user drills down to a specific product.
 
 * Keyword
 * Category
