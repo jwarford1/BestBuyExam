@@ -6,7 +6,7 @@ Selenium Grid uses a central hub and one or more nodes to execute webdirver test
 a single node configured to run with the Chrome driver. A node can be also be confgured for multiple 
 driver versions, and has default versions as well.
 
-The Page Object Model resolves the issue of having multiple test scripts witht the same code accessing the 
+The Page Object Model resolves the issue of having multiple test scripts with the same code accessing the 
 same html element. Now the code to access an element resides in a single class. As well, the logical 
 abstraction of a page class allows for test design flexibility.
 
@@ -15,7 +15,7 @@ abstraction of a page class allows for test design flexibility.
  * OS X El Capitan 10.11.5
  * Intellij Community 17.1
  * Java JDK / JRE 1.8.0_121
- * Selenium server Standaloe 3.0.6
+ * Selenium server Standalone 3.0.6
  * Chrome / Firefox (optional)
  * Maven 3.5.0
 
@@ -50,7 +50,7 @@ java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalon
 
 ## Issues:
 Selenium was unable to populate the credit card cvv input field. It does appear in browser and can be manually edited, but debugging via Chrome Dev. Tools, it appears that it has no height dimension.
-Since it provides an appropriate exception for this test; i simply left it blank.
+Since it provides an appropriate exception for this test; I simply left it blank.
 
 ## Design Decisions Explained:
 
@@ -93,7 +93,7 @@ Essentially we could have a parent “navigation” class and derive from it sev
 
 ### Maven: 
 
-It is simple and well understood. A suitable alternative would be to use grade builds.
+It is simple and well understood. A suitable alternative would be to use gradle builds.
 
 ### JUnit:
 
