@@ -17,6 +17,9 @@ java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.
 run
 mvn clean test -Dbrowser=“chrome"
 
+#### To confirm go to the grid console
+http://localhost:4444/grid/console
+
 
 *** if you want to try firefox
 
