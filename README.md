@@ -1,7 +1,7 @@
 # BestBuyExam
 ## Description
 
-This demo uses Selenium Grid and the Page Obect Model to sastifies the interview question requirements.
+This demo uses Selenium Grid and the Page Obect Model to sastify the interview question requirements.
 Selenium Grid uses a central hub and one or more nodes to execute webdirver tests. For this demo I have 
 a single node configured to run with the Chrome driver. A node can be also be confgured for multiple 
 driver versions, and has default versions as wel.
