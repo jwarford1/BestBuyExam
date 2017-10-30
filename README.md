@@ -50,7 +50,7 @@ java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalon
 
 ## Issues:
 Selenium was unable to populate the credit card cvv input field. It does appear in browser and can be manually edited, but debugging via Chrome Dev. Tools, it appears that it has no height dimension.
-Since it provides an appropritae exception for this test; i simply left it blank.
+Since it provides an appropriate exception for this test; i simply left it blank.
 
 ## Design Decisions Explained:
 
