@@ -29,12 +29,12 @@ public class PageObject {
         return this.driver.getTitle();
     }
 
-    public void closeModalPopup()
+    public void closeModalPopupByClass(String attValue, int timeout)
     {
         try
         {
-            WebDriverWait wait = new WebDriverWait(driver, 5);
-            WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("at-close-icon")));
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(attValue)));
             closeButton.click();
         }
         catch (TimeoutException t)

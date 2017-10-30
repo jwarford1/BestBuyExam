@@ -64,7 +64,7 @@ public class BestBuyPayment extends PageObject{
     @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_CountryContainer_DdlCountry")
     private WebElement sameAsCountry;
 
-    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_CountryContainer_DdlCountry")
+    @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_PhoneContainer_TxtPhone")
     private WebElement sameAsAreaCode;
 
     @FindBy(id = "ctl00_CP_checkoutSections_ctl03_ucPaymentEdit_UCEditCreditCard_NewAddressUC_Phone2Container_TxtPhone2")

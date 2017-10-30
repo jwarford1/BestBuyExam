@@ -105,7 +105,11 @@ public class CreditCardExceptionsTest {
         // by passing driver to the constructor for a Page (in this case BestBuyShopByCategory)
         // handle any modals that popup
         BestBuyShopByCategory landingPage = new BestBuyShopByCategory(driver);
-        landingPage.closeModalPopup();
+
+        // handles the subscription pop up --- if it exists
+        // otherwise print no modal message and returns
+        landingPage.closeModalPopupByClass( "at-close-icon", 5);
+
         landingPage.clearSearchBox();
         landingPage.sendSearchKeyWords(prop.getProperty("product_keyword"));
         landingPage.submitSearchTerm();
@@ -162,7 +166,6 @@ public class CreditCardExceptionsTest {
         // payment.setCardCVV("047");
 
         payment.selectSameShipping();
-
         // validate that auto-fill correcly populates the same as address shipping fields
         Assert.assertEquals(payment.getSameAsShippingFirstName(), prop.getProperty("first_name"));
         Assert.assertEquals(payment.getSameAsShippingLasttName(), prop.getProperty("last_name"));
@@ -173,7 +176,7 @@ public class CreditCardExceptionsTest {
         Assert.assertEquals(payment.getSameAsShippingPostalCode(), prop.getProperty("postal_code"));
         Assert.assertEquals(payment.getSameAsShippingCountry(), prop.getProperty("country_code"));
 
-        //Assert.assertEquals(payment.getSameAsShippingAreaCode(), prop.getProperty("phone_area_code"));
+        Assert.assertEquals(payment.getSameAsShippingAreaCode(), prop.getProperty("phone_area_code"));
         Assert.assertEquals(payment.getSameAsShippingPhonePrefix(), prop.getProperty("phone_prefix"));
         Assert.assertEquals(payment.getSameAsShippingPhoneSuffix(), prop.getProperty("phone_suffix"));
 
