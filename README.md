@@ -41,26 +41,25 @@ http://localhost:4444/grid/console
 
 *** if you want to try firefox
 
-Then stop the chrome node and restart twist the gecko driver
+Then stop the chrome node and restart twist the gecko driver and run: 
 
-run 
 java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
 
 ## Issues:
-Selenium was unable to populate the credit card cvv input field. It does appear in browser and can manually edited, but debugging via Chri=ome De Tools, it appears that it has no height dimension.
+Selenium was unable to populate the credit card cvv input field. It does appear in browser and can be manually edited, but debugging via Chri=ome De Tools, it appears that it has no height dimension.
 Since it provides an appropritae exception for this test; i simply left it blank.
 
 
 ## Design Decisions Explained:
 
 I based my choices on two factors.
+* Industry Acceptance
+* The Learning Curve
 
-#### Industry Acceptance
- The tools I picked have well established histories and large install bases with alot of documentation to support them.
- 
-#### The Learning Curve
-QA / Testing teams members typically have a wide range of skills. The tools in this demo all have relatively easy learning  curves. There are many sophisticated test frameworks available, and they are well worth using.  
-but prior to choosing one of these; a team must make sure it has the capacity and resources required to master them.
+The tools I picked have well established histories and large install bases, with alot of documentation to support them. 
+
+QA / Testing teams members typically have a wide range of skills. The tools in this demo all have relatively easy learning  curves. There are many sophisticated test frameworks available, and they are well worth using; but prior to choosing these,
+a team must make sure it has the capacity and resources required to master them.
 
 ### Selenium Grid:
 
