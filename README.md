@@ -26,16 +26,17 @@ abstraction of a page class allows for test design flexibility.
 * open 3 terminals 
 
 ### Start as selenium as the hub
-
+In a terminal window run:
  java -jar selenium-server-standalone-3.6.0.jar -role hub
 
 ### Register a node as chrome driver
-
+In a terminal window run:
 java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub   http://localhost:4444/grid/register -port 5566
 
 #### To confirm the setup go to the grid console
    http://localhost:4444/grid/console
-
+   
+In a terminal window run:
 ### To run
  mvn clean test -Dbrowser=“chrome"
 
