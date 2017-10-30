@@ -1,6 +1,15 @@
 # BestBuyExam
 ## Description
 
+####  System Details
+
+ OS X El Capitan 10.11.5
+ Intellij Community 17.1
+ Java JDK / JRE 1.8.0_121
+ Selenium server Standaloe 3.0.6
+ Chrome / Firefox
+ Maven 3.5.0
+
 ## Installation and Running Instructions
 To run using maven
 
