@@ -22,8 +22,7 @@ abstraction of a page class allows for test design flexibility.
 ## Installation and Running Instructions
 
 * clone or download and unzip this repository
-* cd into the top level directory 
-* open 3 terminals 
+* open 3 terminals into and cd into the top level directory 
 
 ### Start as selenium as the hub
 In a terminal window run:
