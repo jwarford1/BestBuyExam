@@ -46,14 +46,21 @@ Then stop the chrome node and restart twist the gecko driver
 run 
 java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
 
-
-
-mvn clean test -Dbrowser=“firefox"
+## Issues:
+Selenium was unable to populate the credit card cvv input field. It does appear in browser and can manually edited, but debugging via Chri=ome De Tools, it appears that it has no height dimension.
+Since it provides an appropritae exception for this test; i simply left it blank.
 
 
 ## Design Decisions Explained:
 
-The following is a list of the choices I made for this exam with justifications and possible alternatives where appropriate.
+I based my choices on two factors.
+
+#### Industry Acceptance
+ The tools I picked have well established histories and large install bases with alot of documentation to support them.
+ 
+#### The Learning Curve
+QA / Testing teams members typically have a wide range of skills. The tools in this demo all have relatively easy learning  curves. There are many sophisticated test frameworks available, and they are well worth using.  
+but prior to choosing one of these; a team must make sure it has the capacity and resources required to master them.
 
 ### Selenium Grid:
 
@@ -101,20 +108,4 @@ A more sophisticated approach would be to use TestNG annotations.
 
 Particularly to remove the need for static methods, and to make use of the reporting mechanisms available in TestNg.
 
-## Issues:
-// the cvv box appears in the browser, but its syntax has no height
-I left it blank a it provide an exception
 
-
-
-
-——-
-register phantomjs to hub
-
-"/path/phantomjs.exe --webdriver=5567--webdriver-selenium-grid-hub=http://127.0.0.1:4444"  - donot use host name , or "localhost" , use only IP
-
-use same verison of jars for hub and node machines ( EX: 2.37)
-
-then use
-
-WebDriver driver = new RemoteWebDriver("http://IP of the node machine:5567/wd/hub",DesiredCapabilities.phantomjs());
