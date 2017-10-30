@@ -32,7 +32,7 @@ abstraction of a page class allows for convenient test design flexibility.
 
 java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub   http://localhost:4444/grid/register -port 5566
 
-run
+### run
  mvn clean test -Dbrowser=“chrome"
 
 #### To confirm go to the grid console
