@@ -1,9 +1,10 @@
 # BestBuyExam
 ## Description
 
-This demo uses Selenium Grid and The Page Obect Model to sastifies the interview question requirements.
-Selenium Grid uses a central hub and one or more nodes to execute webdirver tests. For this demo I run 
-a single node configured to run with the Chrome driver. A node can be for multiple driver versions. 
+This demo uses Selenium Grid and the Page Obect Model to sastifies the interview question requirements.
+Selenium Grid uses a central hub and one or more nodes to execute webdirver tests. For this demo I have 
+a single node configured to run with the Chrome driver. A node can be also be confgured for multiple 
+driver versions, and has default versions as wel.
 
 The Page Object Model resolve the issue of having multiple test scripts witht the same code accessing the 
 same html element. Now the code to access an element resides in a single class. As well, the logical 
@@ -23,14 +24,16 @@ abstraction of a page class allows for convenient test design flexibility.
 * clone or downlaod and unzip this repository
 * cd into the top level directory 
 
-Start as selenium as the hub
-java -jar selenium-server-standalone-3.6.0.jar -role hub
+### Start as selenium as the hub
 
-Register a node as chrome driver
-java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/register -port 5566
+ java -jar selenium-server-standalone-3.6.0.jar -role hub
+
+### Register a node as chrome driver
+
+java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub   http://localhost:4444/grid/register -port 5566
 
 run
-mvn clean test -Dbrowser=“chrome"
+ mvn clean test -Dbrowser=“chrome"
 
 #### To confirm go to the grid console
 http://localhost:4444/grid/console
