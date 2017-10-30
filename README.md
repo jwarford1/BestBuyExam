@@ -21,7 +21,7 @@ abstraction of a page class allows for test design flexibility.
 
 ## Installation and Running Instructions
 
-* clone or downlaod and unzip this repository
+* clone or download and unzip this repository
 * cd into the top level directory 
 * open 3 terminals 
 
