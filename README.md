@@ -23,6 +23,7 @@ abstraction of a page class allows for convenient test design flexibility.
 
 * clone or downlaod and unzip this repository
 * cd into the top level directory 
+* open 3 terminals 
 
 ### Start as selenium as the hub
 
@@ -38,17 +39,15 @@ java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.
 #### To confirm go to the grid console
 http://localhost:4444/grid/console
 
+#### If you want to try firefox
 
-*** if you want to try firefox
-
-Then stop the chrome node and restart twist the gecko driver and run: 
+Stop the chrome node and restart twist the gecko driver and run: 
 
 java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
 
 ## Issues:
 Selenium was unable to populate the credit card cvv input field. It does appear in browser and can be manually edited, but debugging via Chri=ome De Tools, it appears that it has no height dimension.
 Since it provides an appropritae exception for this test; i simply left it blank.
-
 
 ## Design Decisions Explained:
 
