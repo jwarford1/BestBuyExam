@@ -80,7 +80,7 @@ https://github.com/SeleniumHQ/docker-selenium
 ### Page Object Model
 
 Allows for flexibility and easy refactoring because the code to access a given element resides in a single class.
-The example code is meant to demonstrate this flexibility.  It use the search box on the landing page.
+The example code is meant to demonstrate this flexibility.  It uses the search box on the landing page.
 It could easily be expanded to incorporate all of the categories on the best buy landing page.
 Similarly, all of the Sections in the left pane could be there own page.
 
