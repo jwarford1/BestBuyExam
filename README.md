@@ -33,15 +33,15 @@ abstraction of a page class allows for test design flexibility.
 
 java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub   http://localhost:4444/grid/register -port 5566
 
-### run
+#### To confirm the setup go to the grid console
+   http://localhost:4444/grid/console
+
+### To run
  mvn clean test -Dbrowser=“chrome"
 
-#### To confirm go to the grid console
-http://localhost:4444/grid/console
+#### If you want to try firefox:
 
-#### If you want to try firefox
-
-Stop the chrome node and restart twist the gecko driver and run: 
+Stop the chrome node and restart with the gecko driver and run: 
 
 java -Dwebdriver.chrome.geckodriver="geckodriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub http://localhost:4444/grid/gister -port 5566
 
