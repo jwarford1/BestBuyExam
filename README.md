@@ -32,7 +32,7 @@ In a terminal window run:
 ### Register a node as chrome driver
 In a terminal window run:
 
-java -Dwebdriver.chrome.driver="chromedriver" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub   http://localhost:4444/grid/register -port 5566
+java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalone-3.6.0.jar -role webdriver -hub   http://localhost:4444/grid/register -port 5566
 
 #### To confirm the setup go to the grid console
    http://localhost:4444/grid/console
